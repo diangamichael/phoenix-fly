@@ -1,92 +1,97 @@
-* response from show.live
-% {
-    "deployed" => false,
-    "id" => "ancient-hill-9383",
-    "name" => "ancient-hill-9383",
-    "organization" => % {
-        "id" => "D307G6NwgR0z2u484QRqYkDRqLhGqO",
-        "slug" => "personal"
-    },
-    "processGroups" => [ % {
-        "maxPerRegion" => 0,
-        "name" => "app",
-        "regions" => [],
-        "vmSize" => % {
-            "cpuCores" => 1.0,
-            "memoryMb" => 256,
-            "name" => "shared-cpu-1x"
-        }
-    }],
-    "releases" => % {
-        "nodes" => [ % {
-            "createdAt" => "2021-09-06T13:29:39Z",
-            "description" => "Scale VM count: [\"app, 2\"]",
-            "reason" => "scale",
-            "stable" => false,
-            "user" => % {
-                "avatarUrl" => "//www.gravatar.com/avatar/a41ea7b6f094186456e12d882ac5e9a2?s=200&d=http://api.adorable.io/avatars/200/sigumagwa@gmail.com.png",
-                "name" => "Sigu Magwa"
-            },
-            "version" => 0
-        }],
-        "totalCount" => 1
-    },
-    "status" => "pending"
-}
+* This file documents by thought process
+** response from show.live
+ #+begin_src elixir
+ % {
+     "deployed" => false,
+     "id" => "ancient-hill-9383",
+     "name" => "ancient-hill-9383",
+     "organization" => % {
+         "id" => "D307G6NwgR0z2u484QRqYkDRqLhGqO",
+         "slug" => "personal"
+     },
+     "processGroups" => [ % {
+         "maxPerRegion" => 0,
+         "name" => "app",
+         "regions" => [],
+         "vmSize" => % {
+             "cpuCores" => 1.0,
+             "memoryMb" => 256,
+             "name" => "shared-cpu-1x"
+         }
+     }],
+     "releases" => % {
+         "nodes" => [ % {
+             "createdAt" => "2021-09-06T13:29:39Z",
+             "description" => "Scale VM count: [\"app, 2\"]",
+             "reason" => "scale",
+             "stable" => false,
+             "user" => % {
+                 "avatarUrl" => "//www.gravatar.com/avatar/a41ea7b6f094186456e12d882ac5e9a2?s=200&d=http://api.adorable.io/avatars/200/sigumagwa@gmail.com.png",
+                 "name" => "Sigu Magwa"
+             },
+             "version" => 0
+         }],
+         "totalCount" => 1
+     },
+     "status" => "pending"
+ }
+ #+end_src
 
-* what I need to show to the user
-  |            | implemented? | done? |
-  |------------+--------------+-------|
-  | App        |              |       |
-  |------------+--------------+-------|
-  | name       | y            | y     |
-  | owner      | n            | y     |
-  | version    | n            | y     |
-  | status     | y            | y     |
-  | hostname   | n            | y     |
-  |------------+--------------+-------|
-  | Deployment |              |       |
-  |------------+--------------+-------|
-  | id         | n            | y     |
-  | version    | n            | y     |
-  | status     | n            | y     |
-  |------------+--------------+-------|
-  | instances  |              |       |
-  |------------+--------------+-------|
-  | idShort    | n            | y     |
-  | version    | n            | y     |
-  | region     | n            | y     |
-  | status     | n            | y     |
-  |------------+--------------+-------|
+** what I need to show to the user
+   |            | implemented? | done? |
+   |------------+--------------+-------|
+   | App        |              |       |
+   |------------+--------------+-------|
+   | name       | y            | y     |
+   | owner      | n            | y     |
+   | version    | n            | y     |
+   | status     | y            | y     |
+   | hostname   | n            | y     |
+   |------------+--------------+-------|
+   | Deployment |              |       |
+   |------------+--------------+-------|
+   | id         | n            | y     |
+   | version    | n            | y     |
+   | status     | n            | y     |
+   |------------+--------------+-------|
+   | instances  |              |       |
+   |------------+--------------+-------|
+   | idShort    | n            | y     |
+   | version    | n            | y     |
+   | region     | n            | y     |
+   | status     | n            | y     |
+   |------------+--------------+-------|
 
-* what we have on the console
-$ flyctl status
-App
-Name     = flyio-web-staging
-Owner    = fly
-Version  = 118
-Status   = running
-Hostname = flyio-web-staging.fly.dev
+** what we have on the console
+ #+begin_src shell
+ $ flyctl status
+ App
+ Name     = flyio-web-staging
+ Owner    = fly
+ Version  = 118
+ Status   = running
+ Hostname = flyio-web-staging.fly.dev
 
-Deployment Status
-ID          = d2f306ae-803b-fa48-d2f1-7d56a16de9ff
-Version     = v118
-Status      = successful
-Description = Deployment completed successfully
-Instances   = 3 desired, 3 placed, 3 healthy, 0 unhealthy
+ Deployment Status
+ ID          = d2f306ae-803b-fa48-d2f1-7d56a16de9ff
+ Version     = v118
+ Status      = successful
+ Description = Deployment completed successfully
+ Instances   = 3 desired, 3 placed, 3 healthy, 0 unhealthy
 
-Instances
-ID       TASK   VERSION REGION DESIRED STATUS  HEALTH CHECKS      RESTARTS CREATED
-ed63d501 web    118     iad    run     running 1 total, 1 passing 0        2h38m ago
-38ece520 web    118     iad    run     running 1 total, 1 passing 0        2h39m ago
-3bf5f208 worker 118     iad    run     running                    0        2h39m ago
+ Instances
+ ID       TASK   VERSION REGION DESIRED STATUS  HEALTH CHECKS      RESTARTS CREATED
+ ed63d501 web    118     iad    run     running 1 total, 1 passing 0        2h38m ago
+ 38ece520 web    118     iad    run     running 1 total, 1 passing 0        2h39m ago
+ 3bf5f208 worker 118     iad    run     running                    0        2h39m ago
+ #+end_src
 
-* Process
-  - sure we need to do this on the show live
-  - do I need to adjust the graphql query or just use it as is? Let me see what I can do with current result
-  - have to add a few on the query
-  - I dont need to show all the details on the instances, more can be shown when need be
-  - add refresh of the page
-* Questions
-  - what is processGroups?
-  - are releases same as instances? or the process groups?
+** Process
+   - sure we need to do this on the show live
+   - do I need to adjust the graphql query or just use it as is? Let me see what I can do with current result
+   - have to add a few on the query
+   - I dont need to show all the details on the instances, more can be shown when need be
+   - add refresh of the page
+** Questions
+   - what is processGroups?
+   - are releases same as instances? or the process groups?
