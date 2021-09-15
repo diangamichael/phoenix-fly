@@ -180,6 +180,8 @@ defmodule Fly.Client do
         app(name: $name) {
           id
           name
+          version
+          hostname
           organization {
             id
             slug

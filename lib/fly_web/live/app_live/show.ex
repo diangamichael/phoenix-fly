@@ -34,6 +34,7 @@ defmodule FlyWeb.AppLive.Show do
 
     case Client.fetch_app(app_name, socket.assigns.config) do
       {:ok, app} ->
+      app |> IO.inspect
         assign(socket, :app, app)
 
       {:error, :unauthorized} ->

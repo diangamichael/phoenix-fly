@@ -42,7 +42,6 @@
               </div>
               <div class="mt-2 flex items-center text-sm text-gray-500">
                 <div class="ml-2 flex-shrink-0 flex">
-
                 </div>
               </div>
             </div>
@@ -68,6 +67,50 @@
     <main class="-mt-32">
       <div class="max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
         <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+
+          <section>
+            <div class="bg-white shadow sm:rounded-lg">
+              <div class="px-4 py-5 sm:px-6">
+                <h2 class="text-lg leading-6 font-medium text-gray-900">
+                  Details
+                </h2>
+
+                <table class="min-w-full divide-y divide-gray-200">
+
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600">
+                        Version
+                        </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600">
+                        v<%= @app["version"] %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600">
+                        Hostname
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600">
+                        <%= @app["hostname"] %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600">
+                        Status
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600">
+
+                        <p class={"px-2 mx-4 inline-flex text-xs leading-5 font-semibold rounded-full #{status_bg_color(@app)} #{status_text_color(@app)}"}>
+                          <%= @app["status"] %>
+                        </p>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+              </div>
+            </section>
           <!-- Description list-->
           <section>
             <div class="bg-white shadow sm:rounded-lg">
