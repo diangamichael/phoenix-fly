@@ -198,6 +198,24 @@ defmodule Fly.Client do
               memoryMb
             }
           }
+          deploymentStatus {
+            id
+            status
+            version
+            description
+            placedCount
+            promoted
+            desiredCount
+            healthyCount
+            unhealthyCount
+				  }
+          allocations(showCompleted: true) {
+            idShort
+            version
+            latestVersion
+            status
+            region
+				  }
           releases(last: 5) {
             totalCount
             nodes {
