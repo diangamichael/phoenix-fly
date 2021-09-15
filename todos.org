@@ -35,22 +35,29 @@
 }
 
 * what I need to show to the user
-  |            | implemented? |
-  |------------+--------------|
-  | App        |              |
-  |------------+--------------|
-  | name       | y            |
-  | owner      | n            |
-  | version    | n            |
-  | status     | y            |
-  | hostname   | n            |
-  |------------+--------------|
-  | Deployment |              |
-  |------------+--------------|
-  | id         |n             |
-  | version    |              |
-  | status     |              |
-  | instances  |              |
+  |            | implemented? | done? |
+  |------------+--------------+-------|
+  | App        |              |       |
+  |------------+--------------+-------|
+  | name       | y            | y     |
+  | owner      | n            | y     |
+  | version    | n            | y     |
+  | status     | y            | y     |
+  | hostname   | n            | y     |
+  |------------+--------------+-------|
+  | Deployment |              |       |
+  |------------+--------------+-------|
+  | id         | n            | y     |
+  | version    | n            | y     |
+  | status     | n            | y     |
+  |------------+--------------+-------|
+  | instances  |              |       |
+  |------------+--------------+-------|
+  | idShort    | n            | y     |
+  | version    | n            | y     |
+  | region     | n            | y     |
+  | status     | n            | y     |
+  |------------+--------------+-------|
 
 $ flyctl status
 App
