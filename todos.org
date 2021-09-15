@@ -59,6 +59,7 @@
   | status     | n            | y     |
   |------------+--------------+-------|
 
+* what we have on the console
 $ flyctl status
 App
 Name     = flyio-web-staging
@@ -84,6 +85,8 @@ ed63d501 web    118     iad    run     running 1 total, 1 passing 0        2h38m
   - sure we need to do this on the show live
   - do I need to adjust the graphql query or just use it as is? Let me see what I can do with current result
   - have to add a few on the query
+  - I dont need to show all the details on the instances, more can be shown when need be
+  - add refresh of the page
 * Questions
   - what is processGroups?
   - are releases same as instances? or the process groups?
