@@ -215,6 +215,11 @@ defmodule Fly.Client do
             latestVersion
             status
             region
+            checks {
+              status
+              output
+              name
+					  }
 				  }
           releases(last: 5) {
             totalCount

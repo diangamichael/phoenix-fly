@@ -4,10 +4,9 @@
 
 # What I built<a id="sec-1"></a>
 
--   added information about running instances
+-   added information about running instances including their health check counts
+-   added the app details
 -   added deployment status of the application
--   refresh the page every 2 seconds
-
 
 # What I would improve<a id="sec-2"></a>
 

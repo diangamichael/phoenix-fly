@@ -1,6 +1,6 @@
-# fly.toml file generated for bold-pine-7598 on 2021-09-12T11:30:01+03:00
+# fly.toml file generated for morning-shape-7557 on 2021-09-15T13:56:53+03:00
 
-app = "bold-pine-7598"
+app = "morning-shape-7557"
 
 kill_signal = "SIGTERM"
 kill_timeout = 5

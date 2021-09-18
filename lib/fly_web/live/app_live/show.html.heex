@@ -103,7 +103,18 @@
                         <p class={"px-2 mx-4 inline-flex text-xs leading-5 font-semibold rounded-full #{status_bg_color(@app)} #{status_text_color(@app)}"}>
                           <%= @app["status"] %>
                         </p>
-
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600">
+                        Deployment Status
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-600">
+                        <% status =  @app["deploymentStatus"] %>
+                        <%= status["desiredCount"] %> desired
+                        <%= status["placedCount"] %> placed
+                        <%= status["healthyCount"] %> healthy
+                        <%= status["unhealthyCount"] %> unhealthy
                       </td>
                     </tr>
                   </tbody>
@@ -197,6 +208,9 @@
                                     Region
                                   </th>
                                   <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Health Checks
+                                  </th>
+                                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Status
                                   </th>
                                 </tr>
@@ -213,8 +227,13 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                       <%= allocation["region"] %>
                                     </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                      <%= allocation_checks(allocation["checks"]) %>
+                                    </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                      <%= allocation["status"] %>
+                                      <p class={"px-2 mx-4 inline-flex text-xs leading-5 font-semibold rounded-full #{status_bg_color(@app)} #{status_text_color(@app)}"}>
+                <%= allocation["status"] %>
+              </p>
                                     </td>
                                   </tr>
                                 <% end %>

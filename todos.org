@@ -38,29 +38,30 @@
  #+end_src
 
 ** what I need to show to the user
-   |            | implemented? | done? |
-   |------------+--------------+-------|
-   | App        |              |       |
-   |------------+--------------+-------|
-   | name       | y            | y     |
-   | owner      | n            | y     |
-   | version    | n            | y     |
-   | status     | y            | y     |
-   | hostname   | n            | y     |
-   |------------+--------------+-------|
-   | Deployment |              |       |
-   |------------+--------------+-------|
-   | id         | n            | y     |
-   | version    | n            | y     |
-   | status     | n            | y     |
-   |------------+--------------+-------|
-   | instances  |              |       |
-   |------------+--------------+-------|
-   | idShort    | n            | y     |
-   | version    | n            | y     |
-   | region     | n            | y     |
-   | status     | n            | y     |
-   |------------+--------------+-------|
+   |             | implemented? | done? |
+   |-------------+--------------+-------|
+   | App         |              |       |
+   |-------------+--------------+-------|
+   | name        | y            | y     |
+   | owner       | n            | y     |
+   | version     | n            | y     |
+   | status      | y            | y     |
+   | hostname    | n            | y     |
+   |-------------+--------------+-------|
+   | Deployment  |              |       |
+   |-------------+--------------+-------|
+   | id          | n            | y     |
+   | version     | n            | y     |
+   | status      | n            | y     |
+   |-------------+--------------+-------|
+   | instances   |              |       |
+   |-------------+--------------+-------|
+   | idShort     | n            | y     |
+   | version     | n            | y     |
+   | region      | n            | y     |
+   | status      | n            | y     |
+   | healthcheks | n            | y     |
+   |-------------+--------------+-------|
 
 ** what we have on the console
  #+begin_src shell

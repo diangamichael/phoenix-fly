@@ -35,7 +35,7 @@ defmodule FlyWeb.AppLive.Show do
 
     case Client.fetch_app(app_name, socket.assigns.config) do
       {:ok, app} ->
-      app |> IO.inspect
+        app |> IO.inspect()
         assign(socket, :app, app)
 
       {:error, :unauthorized} ->
@@ -76,5 +76,12 @@ defmodule FlyWeb.AppLive.Show do
 
   def preview_url(app) do
     "https://#{app["name"]}.fly.dev"
+  end
+
+  def allocation_checks(checks) do
+    count = Enum.count(checks)
+    passcount = Enum.filter(checks, fn check -> check["status"] == "passing" end) |> Enum.count()
+
+    "#{count} checks, #{passcount} passing"
   end
 end
